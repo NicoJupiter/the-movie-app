@@ -7,13 +7,13 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProviders
-import com.gmail.eamosse.imdb.R
 import com.gmail.eamosse.imdb.databinding.TrendingFragmentBinding
+import com.gmail.eamosse.imdb.ui.trending.adapters.TrendingPersonAdapter
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class TrendingFragment : Fragment() {
 
-    private lateinit var trendingViewModel: TrendingViewModel
+    private val trendingViewModel: TrendingViewModel by viewModel()
     private lateinit var binding: TrendingFragmentBinding
 
     override fun onCreateView(
@@ -21,11 +21,28 @@ class TrendingFragment : Fragment() {
             container: ViewGroup?,
             savedInstanceState: Bundle?
     ): View? {
-        trendingViewModel =
-                ViewModelProviders.of(this).get(TrendingViewModel::class.java)
 
         binding = TrendingFragmentBinding.inflate(inflater, container, false)
 
         return binding.root
     }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        with(trendingViewModel) {
+            trendingMovies.observe(viewLifecycleOwner, Observer {
+
+            })
+
+            trendingPeople.observe(viewLifecycleOwner, Observer {
+                binding.trendingPeople.trendingItems.adapter = TrendingPersonAdapter(it)
+            })
+
+            categories.observe(viewLifecycleOwner, Observer {
+
+            })
+        }
+    }
+
 }

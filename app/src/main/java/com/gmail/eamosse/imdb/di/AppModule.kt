@@ -2,6 +2,8 @@ package com.gmail.eamosse.imdb.di
 
 import android.content.Context
 import com.gmail.eamosse.imdb.ui.home.HomeViewModel
+import com.gmail.eamosse.imdb.ui.movie.MovieViewModel
+import com.gmail.eamosse.imdb.ui.trending.TrendingViewModel
 import org.koin.android.ext.koin.androidContext
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.core.qualifier.named
@@ -22,5 +24,11 @@ val appModule = module {
 
     viewModel {
         HomeViewModel(repository = get())
+    }
+    viewModel {
+        TrendingViewModel(repository = get())
+    }
+    viewModel {
+        MovieViewModel(repository = get())
     }
 }

@@ -24,7 +24,7 @@
             android:textSize="40sp"/>
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/bloc_trending_item"
+            android:id="@+id/trending_items"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"

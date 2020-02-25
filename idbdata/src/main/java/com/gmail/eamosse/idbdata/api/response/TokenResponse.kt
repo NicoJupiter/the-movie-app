@@ -18,6 +18,8 @@ internal data class TokenResponse(
     val success: Boolean? = null
 )
 
+
+
 /**
  * Une classe d'extension utilisée pour convertir la réponse en objet exploitable
  * par les autres composants de l'application

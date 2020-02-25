@@ -14,6 +14,11 @@
         <action
             android:id="@+id/action_HomeFragment_to_HomeSecondFragment"
             app:destination="@id/navigation_home_second" />
+
+        <action
+            android:id="@+id/action_HomeFragment_to_MovieListFragment"
+
+            app:destination="@id/navigation_movie_list" />
     </fragment>
     <fragment
         android:id="@+id/navigation_home_second"
@@ -30,10 +35,21 @@
     </fragment>
 
     <fragment
+        android:id="@+id/navigation_movie_list"
+        android:name="com.gmail.eamosse.imdb.ui.movie.MovieListFragment"
+        android:label="@string/movie_list"
+        tools:layout="@layout/fragment_movie_list" >
+        <argument
+            android:name="genreId"
+            app:argType="integer" />
+    </fragment>
+
+
+    <fragment
         android:id="@+id/navigation_dashboard"
-        android:name="com.gmail.eamosse.imdb.ui.dashboard.DashboardFragment"
-        android:label="@string/title_dashboard"
-        tools:layout="@layout/fragment_dashboard" />
+        android:name="com.gmail.eamosse.imdb.ui.trending.TrendingFragment"
+        android:label="@string/title_trending"
+        tools:layout="@layout/trending_fragment" />
 
     <fragment
         android:id="@+id/navigation_notifications"

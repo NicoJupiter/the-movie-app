@@ -18,7 +18,7 @@ internal interface MovieService {
     suspend fun getCategories(): Response<CategoryResponse>
 
     @GET("discover/movie")
-    suspend fun getMovies(@Query("with_genres") q:Int): Response<List<MovieResponse.Genre>>
+    suspend fun getMovies(@Query("with_genres") q:Int): Response<MovieResponse>
 
     @GET("trending/movie/week")
     suspend fun getTrendingMovies(): Response<TrendingMovieResponse>

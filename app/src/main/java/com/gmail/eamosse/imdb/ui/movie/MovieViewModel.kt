@@ -20,9 +20,9 @@ class MovieViewModel(private val repository: MovieRepository) : ViewModel() {
     val error: LiveData<String>
         get() = _error
 
-    fun getMovies() {
+    fun getMovies(genreId: Int) {
         viewModelScope.launch(Dispatchers.IO) {
-            when (val result = repository.getMovies()) {
+            when (val result = repository.getMovies(genreId)) {
                 is Result.Succes -> {
                     _movies.postValue(result.data)
                 }

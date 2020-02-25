@@ -54,10 +54,13 @@ internal class OnlineDataSource(private val service: MovieService) {
         }
     }
 
-    suspend fun getMovies(genreId: Int) : Result<List<MovieResponse.Genre>> {
+    suspend fun getMovies(genreId: Int) : Result<List<MovieResponse.Result>> {
         return safeCall {
-            val response = service.getMovies(12)
-            response.parse()
+            val response = service.getMovies(genreId)
+            when(val result = response.parse()) {
+                is Result.Succes -> Result.Succes(result.data.results)
+                is Result.Error -> result
+            }
         }
     }
 

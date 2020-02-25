@@ -8,9 +8,12 @@ import com.gmail.eamosse.imdb.R
 object BindingAdapters {
 
     @JvmStatic
-    @BindingAdapter("app:bindImage")
-    fun bindImage(imageView: ImageView, url: String?) {
+    @BindingAdapter(value = ["app:bindImage", "app:radius"], requireAll = false)
+    fun bindImage(imageView: ImageView, url: String?, radius: Int? = null) {
         url?.let {
+          /*  if(radius !== null) {
+
+            }*/
             Glide.with(imageView)
                 .load("https://image.tmdb.org/t/p/original/$url")
                 .placeholder(R.drawable.ic_launcher_background)

@@ -21,28 +21,27 @@ class MovieListFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
-        binding = FragmentMovieListBinding.inflate(inflater, container, false)
+        binding = FragmentMovieListBinding.inflate(inflater, container, false).apply {
+            lifecycleOwner = this@MovieListFragment
+        }
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        /*with(movieViewModel) {
-            token.observe(viewLifecycleOwner, Observer {
-                //récupérer les catégories
-                getCategories()
+        with(movieViewModel) {
+
+            //Permet de recupérer des args dans des fragments
+            movieViewModel.getMovies(MovieListFragmentArgs.fromBundle(arguments!!).genreId)
+
+            movies.observe(viewLifecycleOwner, Observer {
+                println(it.size)
+                binding.movieList.adapter = MovieAdapter(it)
             })
 
-            movie_list.observe(viewLifecycleOwner, Observer {
-                binding.categoryList.adapter = CategoryAdapter(it)
-            })
-
-            error.observe(viewLifecycleOwner, Observer {
-                //afficher l'erreur
-            })
         }
-*/
+
     }
 
 

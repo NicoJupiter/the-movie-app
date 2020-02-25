@@ -4,10 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.gmail.eamosse.idbdata.data.TrendingPerson
-import com.gmail.eamosse.imdb.databinding.ItemCategoryBinding
-import com.gmail.eamosse.imdb.databinding.TrendingFragmentBinding
 import com.gmail.eamosse.imdb.databinding.TrendingPersonItemBinding
-import com.gmail.eamosse.imdb.ui.home.CategoryAdapter
 
 class TrendingPersonAdapter(private val items: List<TrendingPerson>) : RecyclerView.Adapter<TrendingPersonAdapter.ViewHolder>() {
 
@@ -15,7 +12,6 @@ class TrendingPersonAdapter(private val items: List<TrendingPerson>) : RecyclerV
         RecyclerView.ViewHolder(binding.root) {
         fun bind(item: TrendingPerson) {
             binding.item = item
-
         }
     }
 

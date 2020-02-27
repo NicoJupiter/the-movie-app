@@ -8,6 +8,7 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import com.gmail.eamosse.imdb.databinding.TrendingFragmentBinding
+import com.gmail.eamosse.imdb.ui.trending.adapters.TrendingMovieAdapter
 import com.gmail.eamosse.imdb.ui.trending.adapters.TrendingPersonAdapter
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -32,7 +33,7 @@ class TrendingFragment : Fragment() {
 
         with(trendingViewModel) {
             trendingMovies.observe(viewLifecycleOwner, Observer {
-
+                binding.trendingMovies.trendingItems.adapter = TrendingMovieAdapter(it)
             })
 
             trendingPeople.observe(viewLifecycleOwner, Observer {

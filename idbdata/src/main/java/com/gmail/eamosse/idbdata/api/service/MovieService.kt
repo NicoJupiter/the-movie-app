@@ -25,4 +25,7 @@ internal interface MovieService {
 
     @GET("trending/person/week")
     suspend fun getTrendingPerson(): Response<TrendingPersonResponse>
+
+    @GET("trending/tv/week")
+    suspend fun getTrendingTv(): Response<TrendingTvResponse>
 }

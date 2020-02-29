@@ -95,5 +95,19 @@ class MovieRepository : KoinComponent {
         }
     }
 
+    suspend fun getTrendingTv() : Result<List<TrendingTv>> {
+        return when(val result = online.getTrendingTv()) {
+            is Result.Succes -> {
+                // On utilise la fonction map pour convertir les catégories de la réponse serveur
+                // en liste de categories d'objets de l'application
+                val tvshow = result.data.map {
+                    it.toTrendingTv()
+                }
+                Result.Succes(tvshow)
+            }
+            is Result.Error -> result
+        }
+    }
+
 
 }

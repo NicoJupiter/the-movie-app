@@ -10,6 +10,7 @@ import androidx.lifecycle.Observer
 import com.gmail.eamosse.imdb.databinding.TrendingFragmentBinding
 import com.gmail.eamosse.imdb.ui.trending.adapters.TrendingMovieAdapter
 import com.gmail.eamosse.imdb.ui.trending.adapters.TrendingPersonAdapter
+import com.gmail.eamosse.imdb.ui.trending.adapters.TrendingTvAdapter
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class TrendingFragment : Fragment() {
@@ -40,8 +41,8 @@ class TrendingFragment : Fragment() {
                 binding.trendingPeople.trendingItems.adapter = TrendingPersonAdapter(it)
             })
 
-            categories.observe(viewLifecycleOwner, Observer {
-
+            trendingTv.observe(viewLifecycleOwner, Observer {
+                binding.trendingTv.trendingItems.adapter = TrendingTvAdapter(it)
             })
         }
     }

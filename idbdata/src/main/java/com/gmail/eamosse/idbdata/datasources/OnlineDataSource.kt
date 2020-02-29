@@ -64,6 +64,16 @@ internal class OnlineDataSource(private val service: MovieService) {
         }
     }
 
+    suspend fun getMovie(movie_id: Int) : Result<MovieDetailResponse> {
+        return safeCall {
+            val response = service.getMovie(movie_id)
+            when(val result = response.parse()) {
+                is Result.Succes -> Result.Succes(result.data)
+                is Result.Error -> result
+            }
+        }
+    }
+
     suspend fun getTrendingMovies() : Result<List<TrendingMovieResponse.Result>> {
         return safeCall {
             val response:Response<TrendingMovieResponse> =  service.getTrendingMovies()

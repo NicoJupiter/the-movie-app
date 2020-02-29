@@ -8,9 +8,11 @@ import com.gmail.eamosse.idbdata.api.response.TrendingMovieResponse
 import com.gmail.eamosse.idbdata.api.response.TrendingPersonResponse
 import retrofit2.Response
 import retrofit2.http.GET
+import retrofit2.http.Path
 import retrofit2.http.Query
 
 internal interface MovieService {
+
     @GET("authentication/token/new")
     suspend fun getToken(): Response<TokenResponse>
 
@@ -20,6 +22,9 @@ internal interface MovieService {
     @GET("discover/movie")
     suspend fun getMovies(@Query("with_genres") q:Int): Response<MovieResponse>
 
+    @GET("/movie/{movie_id}")
+    suspend fun getMovie(@Path("movie_id") movie_id:Int): Response<MovieDetailResponse>
+
     @GET("trending/movie/week")
     suspend fun getTrendingMovies(): Response<TrendingMovieResponse>
 
@@ -28,4 +33,5 @@ internal interface MovieService {
 
     @GET("trending/tv/week")
     suspend fun getTrendingTv(): Response<TrendingTvResponse>
+
 }

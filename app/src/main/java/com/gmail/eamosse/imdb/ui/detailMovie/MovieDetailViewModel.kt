@@ -19,7 +19,7 @@ class MovieDetailViewModel(private val repository: MovieRepository) : ViewModel(
     val error: LiveData<String>
         get() = _error
 
-    fun getMovies(movie_id: Int) {
+    fun getMovie(movie_id: Int) {
         viewModelScope.launch(Dispatchers.IO) {
             when (val result = repository.getMovie(movie_id)) {
                 is Result.Succes -> {

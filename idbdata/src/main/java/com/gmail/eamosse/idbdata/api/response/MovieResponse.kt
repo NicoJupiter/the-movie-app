@@ -45,4 +45,4 @@ data class MovieResponse(
     )
 }
 
-fun MovieResponse.Result.toListFilm() = Movie(id = id ?: 0, title = title ?: "")
+fun MovieResponse.Result.toListFilm() = Movie(id = id ?: 0, title = title ?: "", poster_path = posterPath?: "")

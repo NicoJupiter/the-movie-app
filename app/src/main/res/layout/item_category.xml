@@ -35,6 +35,7 @@
             app:layout_constraintEnd_toEndOf="@id/category_img"
             app:layout_constraintStart_toStartOf="@id/category_img"
             app:layout_constraintTop_toTopOf="@id/category_img"
+            app:layout_constraintBottom_toBottomOf="@+id/category_img"
             tools:text="Actions et Aventures" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

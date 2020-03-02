@@ -22,7 +22,7 @@ internal interface MovieService {
     @GET("discover/movie")
     suspend fun getMovies(@Query("with_genres") q:Int): Response<MovieResponse>
 
-    @GET("/movie/{movie_id}")
+    @GET("movie/{movie_id}")
     suspend fun getMovie(@Path("movie_id") movie_id:Int): Response<MovieDetailResponse>
 
     @GET("trending/movie/week")

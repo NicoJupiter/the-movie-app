@@ -21,17 +21,5 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
 
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/trending_movie_title"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:textColor="@android:color/black"
-            android:textSize="20sp"
-            android:text="@{item.title}"
-            app:layout_constraintEnd_toEndOf="@id/trending_movie_img"
-            app:layout_constraintStart_toStartOf="@id/trending_movie_img"
-            app:layout_constraintTop_toBottomOf="@id/trending_movie_img"
-            tools:text="Actions et Aventures" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

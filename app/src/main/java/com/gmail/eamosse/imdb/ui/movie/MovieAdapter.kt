@@ -6,13 +6,17 @@ import androidx.recyclerview.widget.RecyclerView
 import com.gmail.eamosse.idbdata.data.Movie
 import com.gmail.eamosse.imdb.databinding.ItemMovieBinding
 
-class MovieAdapter(private val items: List<Movie>) :
+class MovieAdapter(private val items: List<Movie>, val handler : (movie : Movie) -> Unit) :
     RecyclerView.Adapter<MovieAdapter.ViewHolder>() {
 
     inner class ViewHolder(private val binding: ItemMovieBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(item: Movie) {
             binding.item = item
+
+            binding.root.setOnClickListener {
+                handler(item)
+            }
         }
     }
 

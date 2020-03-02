@@ -10,14 +10,13 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="2dp"
-        android:layout_marginStart="2dp">
+        android:layout_height="wrap_content">
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/movie_img"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="200dp"
+            android:layout_height="250dp"
+            app:bindImage="@{item.poster_path}"
             android:src="@drawable/ic_launcher_background"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -32,10 +31,9 @@
             android:textColor="@android:color/black"
             android:textSize="20sp"
             android:text="@{item.title}"
-            app:layout_constraintBottom_toBottomOf="@id/movie_img"
+            app:layout_constraintTop_toBottomOf="@id/movie_img"
             app:layout_constraintEnd_toEndOf="@id/movie_img"
             app:layout_constraintStart_toStartOf="@id/movie_img"
-            app:layout_constraintTop_toTopOf="@id/movie_img"
             tools:text="Actions et Aventures" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

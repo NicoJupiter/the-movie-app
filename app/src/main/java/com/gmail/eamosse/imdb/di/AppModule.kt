@@ -1,6 +1,7 @@
 package com.gmail.eamosse.imdb.di
 
 import android.content.Context
+import com.gmail.eamosse.imdb.ui.detailMovie.MovieDetailViewModel
 import com.gmail.eamosse.imdb.ui.home.HomeViewModel
 import com.gmail.eamosse.imdb.ui.movie.MovieViewModel
 import com.gmail.eamosse.imdb.ui.trending.TrendingViewModel
@@ -30,5 +31,8 @@ val appModule = module {
     }
     viewModel {
         MovieViewModel(repository = get())
+    }
+    viewModel {
+        MovieDetailViewModel(repository = get())
     }
 }

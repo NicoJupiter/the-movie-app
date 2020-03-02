@@ -6,8 +6,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
+import androidx.navigation.fragment.findNavController
+import com.gmail.eamosse.idbdata.data.Movie
 import com.gmail.eamosse.imdb.databinding.FragmentMovieListBinding
-import kotlinx.android.synthetic.main.fragment_movie_list.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class MovieListFragment : Fragment() {
@@ -36,11 +37,18 @@ class MovieListFragment : Fragment() {
             movieViewModel.getMovies(MovieListFragmentArgs.fromBundle(arguments!!).genreId)
 
             movies.observe(viewLifecycleOwner, Observer {
-                println(it.size)
-                binding.movieList.adapter = MovieAdapter(it)
+                binding.movieList.adapter = MovieAdapter(it) {
+                    displayDetailFilm(it)
+                }
             })
 
         }
+
+    }
+
+    fun displayDetailFilm(movie: Movie) {
+        val action = MovieListFragmentDirections.actionListMovieToDetailMovie(movie.id)
+        findNavController().navigate(action)
 
     }
 

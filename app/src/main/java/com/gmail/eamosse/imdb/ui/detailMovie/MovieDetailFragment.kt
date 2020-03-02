@@ -31,11 +31,7 @@ class MovieDetailFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        print(args.movieId)
-        print("tamer la pute!!!!!!")
         with(movieDetailViewModel) {
-            print(args.movieId)
-            print("tamer la pute!!!!!!")
             movieDetailViewModel.getMovie(args.movieId)
 
             movie.observe(viewLifecycleOwner, Observer {
